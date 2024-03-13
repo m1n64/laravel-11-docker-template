@@ -6,6 +6,11 @@ Stack: PHP 8.2, Laravel 11 (Octane, Sanctum, Sail, Reverb), PostgreSQL 15, Vite 
 ```bash
 git clone git@github.com:m1n64/laravel-11-docker-template.git my-project
 ```
+(or)
+```bash
+composer create-project m1n64/laravel-11-docker-template
+```
+Next,
 ```bash
 cd my-project
 ```
