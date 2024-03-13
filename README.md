@@ -30,6 +30,9 @@ chmod 755 ./sail
 ./sail npm i
 ```
 ```bash
+./sail artisan key:generate
+```
+```bash
 ./sail artisan migrate --seed
 ```
 Reload app:
