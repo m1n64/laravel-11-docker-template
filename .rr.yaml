@@ -1,0 +1,59 @@
+version: '3'
+
+rpc:
+  listen: tcp://127.0.0.1:6001
+
+server:
+  command: "php /var/www/html/artisan octane:start --server=roadrunner --max-requests=1000 --port=8000 --workers=4 --task-workers=6"
+
+http:
+  address: 0.0.0.0:8000
+  middleware: ["headers", "gzip"]
+  pool:
+    num_workers: 4
+    max_jobs: 10
+  uploads:
+    forbid: [".php", ".exe", ".bat"]
+
+static:
+  dir: "public"
+  forbid: [".php"]
+
+logs:
+  mode: production
+  channels:
+    http:
+      level: info
+      output: stdout
+
+headers:
+  response:
+    X-Powered-By: "RoadRunner"
+
+gzip:
+  level: 6
+
+limits:
+  interval: 1s
+  timeout: 60s
+  max_request_size: 32M
+  max_execution_time: 60s
+
+health:
+  address: 0.0.0.0:6002
+
+metrics:
+  address: 0.0.0.0:6003
+  collect:
+    interval: 10s
+
+reload:
+  interval: 1s
+  patterns: [".php", ".env"]
+
+  services:
+    files:
+      dirs: ["./app", "./routes", "./config", "./bootstrap", "./vendor"]
+
+  # You can also enable live-reload (optional)
+  live: true
