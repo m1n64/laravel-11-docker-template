@@ -13,7 +13,7 @@ services:
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
-            - '${APP_PORT:-80}:80'
+            - '${APP_PORT:-80}:8000'
             - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
             - '${REVERB_PORT-8080}:8080'
         environment:
@@ -34,6 +34,8 @@ services:
             - db
             - redis
             - mailhog
+        networks:
+            - laravel_11_docker_template_network
 
     db:
         image: postgres:15
@@ -47,6 +49,8 @@ services:
             - db-data:/var/lib/postgresql/data
         ports:
             - "5432:5432"
+        networks:
+            - laravel_11_docker_template_network
 
     redis:
         image: redis:alpine
@@ -55,6 +59,8 @@ services:
             - ./redis:/data
         ports:
             - "6379:6379"
+        networks:
+            - laravel_11_docker_template_network
 
 
     mailhog:
@@ -63,11 +69,19 @@ services:
         ports:
             - '${FORWARD_MAILHOG_PORT:-1025}:1025'
             - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025'
+        networks:
+            - laravel_11_docker_template_network
 
     adminer:
         image: adminer
         container_name: adminer
         restart: always
+        networks:
+            - laravel_11_docker_template_network
 
 volumes:
     db-data:
+
+networks:
+    laravel_11_docker_template_network:
+        driver: bridge

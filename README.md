@@ -1,4 +1,4 @@
-## Laravel 11 + Octane (swoole) + sail + Reverb template
+## Laravel 11 + Octane (RoadRunner) + sail + Reverb template
 
 Stack: PHP 8.3, Laravel 11 (Octane, Sanctum, Sail, Reverb), PostgreSQL 15, Vite (node.js 20), Redis, mailhog, adminer
 
@@ -19,6 +19,9 @@ cp .env.example .env
 ```
 ```bash
 chmod 755 ./sail
+```
+```bash
+chmod 755 ./rr
 ```
 ```bash
 ./sail -f docker-compose.yml -f docker-compose.dev.yml up -d --build
