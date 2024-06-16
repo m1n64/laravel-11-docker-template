@@ -10,6 +10,10 @@ git clone git@github.com:m1n64/laravel-11-docker-template.git my-project
 ```bash
 composer create-project m1n64/laravel-11-docker-template
 ```
+(for swoole server use)
+```bash 
+composer create-project m1n64/laravel-11-docker-template:2.0.1
+```
 Next,
 ```bash
 cd my-project
@@ -17,12 +21,17 @@ cd my-project
 ```bash
 cp .env.example .env
 ```
+
+Change your database name in `.env` `DB_DATABASE`
+
 ```bash
 chmod 755 ./sail
 ```
 ```bash
 chmod 755 ./rr
 ```
+Next, change docker network and `-l11` postfix in containers name in `docker-compose.yml` and `docker-compose.dev.yml`
+
 ```bash
 ./sail -f docker-compose.yml -f docker-compose.dev.yml up -d --build
 ```

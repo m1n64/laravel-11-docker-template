@@ -9,7 +9,7 @@ services:
       args:
         WWWGROUP: '${WWWGROUP}'
     image: sail-8.2/app
-    container_name: app
+    container_name: app-l11
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     ports:
@@ -29,11 +29,11 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       REDIS_HOST: redis
     networks:
-        - laravel_11_docker_template_network
+      - laravel_11_docker_template_network
 
   adminer:
     image: adminer
-    container_name: adminer
+    container_name: adminer-l11
     restart: unless-stopped
     ports:
       - "1337:8080"

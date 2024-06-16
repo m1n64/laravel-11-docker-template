@@ -9,7 +9,7 @@ services:
             args:
                 WWWGROUP: '${WWWGROUP}'
         image: sail-8.2/app
-        container_name: app
+        container_name: app-l11
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -39,7 +39,7 @@ services:
 
     db:
         image: postgres:15
-        container_name: db
+        container_name: db-l11
         restart: unless-stopped
         environment:
             POSTGRES_DB: ${DB_DATABASE}
@@ -54,7 +54,7 @@ services:
 
     redis:
         image: redis:alpine
-        container_name: redis
+        container_name: redis-l11
         volumes:
             - ./redis:/data
         ports:
@@ -65,7 +65,7 @@ services:
 
     mailhog:
         image: 'mailhog/mailhog:latest'
-        container_name: mailhog
+        container_name: mailhog-l11
         ports:
             - '${FORWARD_MAILHOG_PORT:-1025}:1025'
             - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025'
@@ -74,7 +74,7 @@ services:
 
     adminer:
         image: adminer
-        container_name: adminer
+        container_name: adminer-l11
         restart: always
         networks:
             - laravel_11_docker_template_network
