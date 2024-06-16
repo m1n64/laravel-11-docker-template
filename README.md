@@ -1,6 +1,6 @@
 ## Laravel 11 + Octane (swoole) + sail + Reverb template
 
-Stack: PHP 8.2, Laravel 11 (Octane, Sanctum, Sail, Reverb), PostgreSQL 15, Vite (node.js 20), Redis, mailhog, adminer
+Stack: PHP 8.3, Laravel 11 (Octane, Sanctum, Sail, Reverb), PostgreSQL 15, Vite (node.js 20), Redis, mailhog, adminer
 
 ### Startup:
 ```bash
