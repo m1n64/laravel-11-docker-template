@@ -55,6 +55,10 @@ Reload app:
 ./sail -f docker-compose.yml -f docker-compose.dev.yml up -d
 ```
 
+### ToDo:
+1. Add Telescope
+2. Add Horizon
+
 App successfully installed!
 
 App url: [http://localhsot](http://localhost)
