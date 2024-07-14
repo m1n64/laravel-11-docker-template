@@ -1,6 +1,12 @@
 ## Laravel 11 + Octane (RoadRunner) + sail + Reverb template
 
-Stack: PHP 8.3, Laravel 11 (Octane, Sanctum, Sail, Reverb), PostgreSQL 15, Vite (node.js 20), Redis, mailhog, adminer
+Stack: PHP 8.3, Laravel 11 (Octane, Sanctum, Sail, Reverb), PostgreSQL 15, Vite (node.js 20), Redis
+
+Mail: mailhog
+
+DB admin: adminer
+
+Libs: [Telescope](https://laravel.com/docs/11.x/telescope), [Horizon](https://laravel.com/docs/11.x/horizon), [internachi/modular](https://github.com/InterNACHI/modular)
 
 ### Startup:
 ```bash
@@ -62,6 +68,10 @@ Reload app:
 App successfully installed!
 
 App url: [http://localhsot](http://localhost)
+
+Telescope url: [http://localhsot/telescope](http://localhost/telescope)
+
+Horizon url: [http://localhsot/horizon](http://localhost/horizon)
 
 Mailhog url: [http://localhsot:8025](http://localhost:8025)
 
