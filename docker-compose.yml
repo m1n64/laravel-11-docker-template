@@ -37,6 +37,19 @@ services:
         networks:
             - laravel_11_docker_template_network
 
+    vite:
+        image: node:20-alpine
+        container_name: vite-l11
+        command: /bin/sh -c "cd /var/www/html && npm install && npm run build"
+        environment:
+            NODE_ENV: production
+        volumes:
+            - ./:/var/www/html
+        networks:
+            - laravel_11_docker_template_network
+        depends_on:
+            - laravel.test
+
     db:
         image: postgres:15
         container_name: db-l11
@@ -63,21 +76,11 @@ services:
             - laravel_11_docker_template_network
 
 
-    mailhog:
-        image: 'mailhog/mailhog:latest'
-        container_name: mailhog-l11
-        ports:
-            - '${FORWARD_MAILHOG_PORT:-1025}:1025'
-            - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025'
+    mailpit:
+        image: none
+        container_name: mailpit-l11
         networks:
-            - laravel_11_docker_template_network
-
-    adminer:
-        image: adminer
-        container_name: adminer-l11
-        restart: always
-        networks:
-            - laravel_11_docker_template_network
+            - korufarm-cms-back
 
 volumes:
     db-data:

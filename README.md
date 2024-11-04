@@ -2,9 +2,7 @@
 
 Stack: PHP 8.3, Laravel 11 (Octane, Sanctum, Sail, Reverb), PostgreSQL 15, Vite (node.js 20), Redis
 
-Mail: mailhog
-
-DB admin: adminer
+Mail: mailpit
 
 Libs: [Telescope](https://laravel.com/docs/11.x/telescope), [Horizon](https://laravel.com/docs/11.x/horizon), [internachi/modular](https://github.com/InterNACHI/modular)
 
